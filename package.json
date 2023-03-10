@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/adalessandro/dymind-dh36#readme",
   "dependencies": {
+    "js-object-pretty-print": "^0.3.0",
     "simple-hl7": "^3.2.4",
     "xlsx-template": "^1.4.3"
   }
