@@ -1,7 +1,23 @@
 var fs = require('fs');
 var hl7 = require('simple-hl7');
+var path = require('path');
+var XlsxTemplate = require('xlsx-template');
 
 var app = hl7.tcp();
+
+const templateFilename = 'HEMOGRAMA FELINO.xlsx';
+
+function generateExcel(filename, values) {
+	fs.readFile(path.join(__dirname, templateFilename), function(err, data) {
+		const template = new XlsxTemplate(data);
+		const sheetNumber = 1;
+		console.log(values);
+		template.substitute(sheetNumber, {});
+		const outputData = template.generate();
+		const outputFilename = filename + '.xlsx';
+		fs.writeFileSync(path.join(__dirname, outputFilename), outputData, 'binary');
+	});
+}
 
 app.use(function(req, res, next) {
 	console.log('***** MENSAJE RECIBIDO *****')
@@ -58,8 +74,9 @@ app.use(function(req, res, next) {
 	var filename = './' +
 		ret['ID'] + '-' +
 		ret['Paciente'] + '-' +
-		ret['Propietario'] + '.csv';
-	fs.writeFileSync(filename, outputStr);
+		ret['Propietario'];
+	fs.writeFileSync(filename + '.csv', outputStr);
+	generateExcel(filename, ret);
 })
 
 app.use(function(err, req, res, next) {
