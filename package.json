@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/adalessandro/dymind-dh36/issues"
   },
-  "homepage": "https://github.com/adalessandro/dymind-dh36#readme"
+  "homepage": "https://github.com/adalessandro/dymind-dh36#readme",
+  "dependencies": {
+    "simple-hl7": "^3.2.4"
+  }
 }
