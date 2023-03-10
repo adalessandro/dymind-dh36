@@ -7,6 +7,7 @@ var pretty = require('js-object-pretty-print').pretty;
 
 app.use(function(req, res, next) {
 	console.log('***** MENSAJE RECIBIDO *****')
+	fs.writeFileSync('dump.json', JSON.stringify(req));
 	console.log(pretty(req));
 })
 
