@@ -19,6 +19,7 @@ function generateExcel(filename, values) {
 		values['Resultados'].forEach(resultado => {
 			outputValues[resultado['Parametro']] = strToFloat(resultado['Resultado']);
 		});
+		outputValues['PLT'] *= 1000;
 		template.substitute(sheetNumber, outputValues);
 		const outputData = template.generate();
 		const outputFilename = filename + '.xlsx';
