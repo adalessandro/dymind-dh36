@@ -83,7 +83,7 @@ app.use(function(req, res, next) {
 		ret['ID'] + '-' +
 		ret['Paciente'] + '-' +
 		ret['Propietario'];
-	fs.writeFileSync(filename + '.csv', outputStr);
+	//fs.writeFileSync(filename + '.csv', outputStr);
 	generateExcel(filename, ret);
 })
 
