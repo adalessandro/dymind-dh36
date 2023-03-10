@@ -3,7 +3,7 @@ var hl7 = require('simple-hl7');
 
 var app = hl7.tcp();
 
-var pretty = require('js-object-pretty-print').pretty,
+var pretty = require('js-object-pretty-print').pretty;
 
 app.use(function(req, res, next) {
 	console.log('***** MENSAJE RECIBIDO *****')
